@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import { GoArrowRight } from "react-icons/go";
 import { RxCross2 } from "react-icons/rx";
 import { CgMenuRight } from "react-icons/cg";
+import ThemeToggle from './ThemeToggle';
 
-function Navbar() {
+function Navbar({theme, setTheme}) {
 
   const [open, setOpen] = useState(false);
   return (
@@ -26,6 +27,9 @@ function Navbar() {
       </div>
 
       <div className='flex items-center gap-2 sm:gap-4'>
+
+        <ThemeToggle theme={theme} setTheme={setTheme} />
+
         <CgMenuRight  onClick={() => setOpen(true)} className='text-3xl sm:hidden cursor-pointer'/>
         <a href="#contact" className='text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all '>Contact <GoArrowRight /></a>
       </div>
